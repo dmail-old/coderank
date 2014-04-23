@@ -1,0 +1,29 @@
+<div id="content" class="column">
+	<!-- BEGIN section -->
+	<ul class="list codelist rounded shadow">
+		<li class="button b static" role="heading">
+			<h3>
+				{section.title}
+				<!-- IF section.rss --><a style="margin-left:5px;" title="{section.rss.text}" href="{section.rss.href}"><img style="vertical-align:text-bottom" width="16" src="{root}/img/rss.png" /></a><!-- ENDIF -->
+			</h3>			
+		</li>
+		<!-- INCLUDE part/codelist AS section.code -->
+	</ul>
+	<!-- END section -->
+</div>
+
+<div id="menu" class="grid three">
+	<!-- BEGIN menu -->
+	<div class="block">
+		<h3>{menu.text}</h3>
+		<ul class="list">
+			<!-- BEGIN menu.list -->
+			<li class="button c icon arrow-r right">
+				<a class="inner" href="{root}/search.php?{menu.name}={menu.list.name}">{menu.list.text}</a>
+				<span title="Nombre de code {menu.list.text}" class="count">{menu.list.count}</span>
+			</li>
+			<!-- END menu.list -->
+		</ul>
+	</div>
+	<!-- END menu -->
+</div>

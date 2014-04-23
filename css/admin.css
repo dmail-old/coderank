@@ -1,0 +1,115 @@
+body{
+	
+}
+
+#page{
+	background: -moz-linear-gradient(#E6E6E6, #CCCCCC) repeat scroll 0 0 #CCCCCC;
+}
+
+#header,#footer{	
+	font-weight: bold;
+	color: #FFFFFF;
+	text-shadow: 0 -1px 1px #145072;
+	border-color: #145072;
+	background: #2567AB;
+	background-image: -webkit-linear-gradient(#3C3C3C, #111111);
+	background-image:    -moz-linear-gradient(#5F9CC5, #396B9E);
+	background-image:     -ms-linear-gradient(#3C3C3C, #111111);
+	background-image:      -o-linear-gradient(#3C3C3C, #111111);
+	background-image:         linear-gradient(#3C3C3C, #111111);   
+}
+
+#header>.line{
+	float: left;
+	width: 15%;
+	font-size: 80%;
+	position: relative;
+}
+
+#header .expand{
+	margin-left: 1%;
+}
+
+#header .content{
+	padding: 0;
+	position: absolute; z-index: 10;
+	border: none;
+	width: 100%;
+}
+
+#footer a{
+	color: #333333;
+}
+
+table{
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+    font-family: "Lucida Sans Unicode","Lucida Grande",Sans-Serif;
+    font-size: 12px;
+    text-align: left;
+	width: 100%;
+}
+
+table>caption{
+    border-bottom: 1px solid #FFFFFF;
+    font-size: 13px;
+    font-weight: normal;
+    padding: 8px;
+}
+
+table>caption, .actions{
+	color: #FFFFFF;
+    text-shadow: 0 -1px 1px #000000;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);	
+	border-color: #222222;	
+	background: #333333;
+	background-image: -webkit-linear-gradient(#555555, #333333);
+	background-image:    -moz-linear-gradient(#555555, #333333);
+	background-image:     -ms-linear-gradient(#555555, #333333);
+	background-image:      -o-linear-gradient(#555555, #333333);
+	background-image:         linear-gradient(#555555, #333333);
+}
+
+table th, table td{
+	padding: 8px;
+}
+
+table td{
+	background-color: white;
+    border-bottom: 1px solid lightGrey;
+    border-top: 1px solid transparent;
+    color: #666699;
+}
+
+.actions{
+	padding: 2px 1%;
+}
+
+.actions .button{
+	border-radius: 0.2em 0.2em 0.2em 0.2em;
+    font-size: 80%;
+    font-weight: normal;
+    margin-left: 5px;
+    margin-right: 0;
+    padding: 6px 12px;
+}
+
+.pagination{
+	margin: 0;
+}
+
+table td, table th{
+	white-space: nowrap;
+	text-align: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.remove, .edit{
+	display: block;
+}
+
+.code>pre>ol{
+	max-height: 100px;
+}

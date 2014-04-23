@@ -1,0 +1,17 @@
+<!-- BEGIN commentlist -->
+<li class="<!-- IF commentlist.mine -->mine<!-- ELSEIF commentlist.owner -->owner<!-- ENDIF --><!-- IF commentlist.control --> control<!-- ENDIF -->">
+	<p class="text">{commentlist.content}</p><br>
+	<p class="data">
+		<!-- IF commentlist.author -->
+		<a class="author" href="{commentlist.author.href}">{commentlist.author.text}</a>
+		<!-- ENDIF -->
+		{commentlist.ctime}
+		<!-- IF commentlist.code.text -->
+		{commentlist.code.text} <a href="{commentlist.code.href}">{commentlist.code.name}.{commentlist.code.extension}</a>
+		<!-- ENDIF -->
+	</p>
+	<!-- BEGIN commentlist.control -->
+	<a href="{commentlist.control.href}" class="{commentlist.control.name}" title="{commentlist.control.text}" tabindex="-1">{commentlist.control.text}</a>
+	<!-- END commentlist.control -->
+</li>
+<!-- END commentlist -->

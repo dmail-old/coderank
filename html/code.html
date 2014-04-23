@@ -1,0 +1,166 @@
+<!-- IF message -->
+<div id="content">
+	<p class="message.type">{message.text}</p>
+</div>
+<!-- ELSE -->
+<div id="content" class="column">
+
+<div class="box">
+	<div class="title button b static"><h2 class="inner" style="padding-right:75px;">{code.name}.{code.extension}</h2><!-- INCLUDE part/rank AS code.rank --></div>
+	<div class="content">
+		<p id="codedesc">{code.description}</p>
+
+		<div class="expand">
+			<input id="exemple" type="checkbox" checked="checked" />
+			<label class="button c rounded" for="exemple"><span class="inner">{codelang.demo}</span></label>
+			<div class="content code" style="padding:0">{code.demo_colored}</div>
+		</div>
+
+		<div class="expand" style="position:relative;">
+			<input id="source" type="checkbox" checked="checked" />
+			<label for="source" class="button c rounded"><span class="inner">{codelang.source}</span></label>
+			<div class="content" style="padding:0">
+				<!--
+				Mettre un bouton voir le texte brut
+				<textarea class="styled" style="background:transparent;box-shadow:none !important; overflow:auto;height:200px;" readonly>{code.source}</textarea>
+				-->
+				<div class="code">{code.source_colored}</div>
+			</div>
+			<a style="position:absolute;right:2px;top:0px;font-size:70%;" class="button b rounded inner" href="{code.download.href}">{code.download.text}</a>
+		</div>
+
+		<div class="expand">
+			<input id="comment" type="checkbox" checked="checked" />
+			<label class="button c rounded" for="comment"><span class="inner">{codelang.code_comment}</span><span class="count">{code.comment_count}</span></label>
+			<div class="content" style="padding:10px;">
+				<!-- IF code.comment -->
+				<ul class="comment"><!-- INCLUDE part/commentlist AS code.comment --></ul>
+				<!-- ELSE -->
+				<p>{codelang.comment_empty}</p>
+				<!-- ENDIF -->
+				<!-- IF textarea.requirement -->
+				<div style="text-shadow:none;font-size:80%;height:50px;background-color:#F0F0F0;border:1px solid #B3B3B3;border-radius:0.6em;margin-top:10px;max-width:100%;padding: 0.4em;">
+					{textarea.requirement}
+				</div>
+				<!-- ELSE -->
+				<form action="{root}/code/{code.name}.{code.extension}" method="post">
+					<textarea name="text" class="styled" placeholder="{textarea.placeholder}">{textarea.text}</textarea>				
+					<!-- IF textarea.message --><p class="{textarea.message.type}">{textarea.message.text}</p><!-- ENDIF -->
+					<input type="submit" name="comment" value="{codelang.comment}" style="float:right;margin-right:0;" class="button b rounded inner" />
+					{hidden}
+				</form>
+				<!-- ENDIF -->
+			</div>
+		</div>
+
+		<!-- IF vote.message -->
+		<p style="float:left" class="{vote.message.type}">{vote.message.text}</p>
+		<!-- ELSEIF vote -->
+		<!-- IF !vote.value -->
+		<div id="rating" class="expand">
+			<input id="rate" type="checkbox" />
+			<label class="button c rounded" for="rate"><span class="inner">{codelang.vote}</span></label>
+			<div class="content">
+				<!-- IF vote.requirement -->
+				<div style="padding:10px;">
+					<p style="margin-top:0">{codelang.voteneed}</p>
+					<ul style="list-style:circle;padding-left:2em;">
+						<!-- BEGIN vote.requirement --><li>{vote.requirement.text}.</li><!-- END vote.requirement -->
+					</ul>
+				</div>
+				<!-- ELSE -->
+				<form action="{root}/code/{code.name}.{code.extension}" method="post">
+					<div style="display:block;margin:0" class="group">
+					<!-- BEGIN vote.rate --><label>
+						<input type="radio" name="rate" value="{vote.rate.value}" />
+						<div class="button inner">
+							<div class="rate" title="{vote.rate.title}">
+								<!-- IF vote.rate.value > 0 --><span></span><!-- ENDIF -->
+								<!-- IF vote.rate.value > 1 --><span></span><!-- ENDIF -->
+								<!-- IF vote.rate.value > 2 --><span></span><!-- ENDIF -->
+								<!-- IF vote.rate.value > 3 --><span></span><!-- ENDIF -->
+								<!-- IF vote.rate.value > 4 --><span></span><!-- ENDIF -->
+							</div>
+							{vote.rate.value}
+						</div>
+					</label><!-- END vote.rate -->
+					</div>
+					<input type="submit" name="vote" value="{vote.text}" class="button rounded inner b" style="float:right" />
+					{hidden}
+				</form>
+				<!-- ENDIF -->
+			</div>
+		</div>
+		<!-- ENDIF -->
+		<!-- ENDIF -->
+
+		<!-- IF favory -->
+		<form action="{root}/code/{code.name}.{code.extension}" method="post">
+			<div style="float:left;">
+				<!-- IF favory.message -->
+				<p class="{favory.message.type}">{favory.message.text}</p>
+				<!-- ELSEIF favory.text -->
+				<input type="submit" name="favory" value="{favory.text}" class="button rounded c inner" style="font-size:70%;" />
+				<!-- ENDIF -->
+			</div>
+			{hidden}
+		</form>
+		<!-- ENDIF -->
+
+		<!-- IF message --><p class="{message.type}">{message.text}</p><!-- ENDIF -->
+	</div>
+</div>
+
+</div>
+
+<div id="menu" class="grid two">	
+	<div class="block">
+		<h3>{info}</h3>
+		<ul class="list rounded"> <!--style="font-size: 80%;line-height:2em"-->	
+			<li class="button static c inner">
+				<span class="legend">{view}</span>
+				<span><!-- IF code.view -->{code.view}<!-- ELSE -->jamais<!-- ENDIF --></span>
+			</li>
+			<li class="button static c inner">
+				<span class="legend">{size}</span>
+				<span>{code.download.size}</span>
+			</li>
+			<li class="button static c inner">
+				<span class="legend">{ctime}</span>
+				<span>{code.date}</span>
+			</li>
+			<li class="button c icon right arrow-r">
+				<span class="legend">{code.author.legend}</span>
+				<a class="inner" href="{code.author.href}">{code.author.name}</a>
+			</li>
+			<li class="button c icon right arrow-r">
+				<span class="legend">{language}</span>
+				<a class="inner" href="{root}/search.php?language={code.language}<!-- IF code.version && !"{code.library}" -->&version={code.version}<!-- ENDIF -->">
+				{code.language} <!-- IF code.version && !"{code.library}" -->{code.version}<!-- ENDIF -->
+				</a>
+			</li>
+			<!-- IF code.library -->
+			<li class="button c icon right arrow-r">
+				<span class="legend">{library}</span>
+				<a class="inner" href="{root}/search.php?library={code.library}<!-- IF code.version -->&version={code.version}<!-- ENDIF -->">
+				{code.library} <!-- IF code.version -->{code.version}<!-- ENDIF -->
+				</a>
+			</li>
+			<!-- ENDIF -->
+		</ul>
+	</div>
+	
+	<div class="block">
+		<h3>{category}</h3>
+		<!-- IF code.category -->
+		<ul id="cat">
+			<!-- BEGIN code.category -->
+			<li><a href="{code.category.href}" class="button inner rounded c">{code.category.name}</a></li>
+			<!-- END code.category -->
+		</ul>
+		<!-- ELSE -->
+		<p style="margin-top:0.4em;font-size:80%">{category_empty}</P>
+		<!-- ENDIF -->
+	</div>
+</div>
+<!-- ENDIF -->

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="{lang}" dir="ltr">
+
+<head>
+	{meta}
+	<title>{sitename}<!-- IF title --> - {title}<!-- ENDIF --></title>
+	<link href="{root}/favicon.png" type="image/x-icon" rel="shortcut icon"/>
+	{css}
+	{head_js}
+</head>
+
+<body>
+
+<div id="header">
+	<h1 id="logo"><a href="{root}">Coderank</a></h1>
+
+	<div id="search">
+		<form onsubmit="if ($('search').getElement('input').value == '') return false;" action="{SEARCH_ACTION}">
+			<input name="search" type="search" placeholder="{L_SEARCH}" spellcheck="false" />
+			<button title="{L_SEARCH}" class="button b icon search right" type="submit">{L_SEARCH}</button>
+		</form>
+	</div>
+
+	<div id="links">
+		<!-- IF moderate -->
+		<div id="moderate" class="group rounded" style="margin:0">
+		<!-- BEGIN moderate --><a class="button shadow light <!-- IF moderate.count -->r<!-- ELSE -->d<!-- ENDIF -->" href="{moderate.href}">
+			<span class="inner">{moderate.text}</span>
+			<span class="count">{moderate.count}</span>
+		</a><!-- END moderate -->
+		</div>
+		<!-- ENDIF -->
+	
+		<div class="group rounded" style="margin:0">
+		<!-- BEGIN links --><a class="button shadow light d icon {links.icon}" href="{links.href}">
+			<span class="inner">{links.lang}</span>
+			<!-- IF links.count --><span class="count">{links.count}</span><!-- ENDIF -->
+		</a><!-- END links -->
+		</div>
+	</div>
+</div>
+
+{js}
+
+<div id="page">
+	<!-- IF message --><p class="success">{message}</p><!-- ENDIF -->
+	<div id="nav">
+		<ul>
+			<!-- BEGIN nav -->
+			<li><!-- IF nav.href --><a href="{nav.href}" class="button c rounded inner">{nav.text}</a><!-- ELSE --><h2>{nav.text}</h2><!-- ENDIF --></li>
+			<!-- END nav -->
+		</ul>
+	</div>

@@ -1,0 +1,11 @@
+<!-- BEGIN option -->
+<!-- IF option.group -->
+	<optgroup label="{option.name}">
+		<!-- BEGIN option.group -->
+		<option value="{option.group.name}" <!-- IF option.group.selected --> selected="selected"<!-- ENDIF -->>{option.group.text}</option>
+		<!-- END option.group -->
+	</optgroup>
+<!-- ELSE -->
+<option value="{option.name}"<!-- IF option.selected --> selected="selected"<!-- ENDIF -->>{option.text}</option>
+<!-- ENDIF -->
+<!-- END option -->

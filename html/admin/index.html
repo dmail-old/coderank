@@ -1,0 +1,24 @@
+<form action="" method="post">
+<table>
+	<tr><!-- BEGIN column --><th>{column.text}</th><!-- END column --></tr>
+	<!-- IF item -->
+	<!-- BEGIN item -->
+	<tr><!-- BEGIN item.field --><td>{item.field.value}</td><!-- END item.field --></tr>
+	<!-- END item -->
+	<!-- ELSE -->
+	<tr><td style="text-align:center" colspan="{column_count}">{no_row}</td></tr>
+	<!-- ENDIF -->
+</table>
+
+<!-- IF pagination -->
+<ol class="pagination">
+	<!-- BEGIN pagination -->
+	<li>
+		<a href="{pagination.href}" class="button inner <!-- IF pagination.current -->b static<!-- ELSE -->c<!-- ENDIF -->">{pagination.text}</a>
+	</li>
+	<!-- END pagination -->
+</ol>
+<!-- ENDIF -->
+
+<input type="submit" name="add" value="Ajouter" />
+</form>

@@ -1,0 +1,106 @@
+/* ligne */
+.code .de1, .code .de2{ font-family: Courier New; color: #000000; vertical-align: top; }
+.code>pre{ margin: 0; text-shadow: none; background-color: #F2F4FF; }
+.code>pre>ol{
+    list-style: decimal outside none;
+    margin: 0;
+	padding: 0;
+	overflow: auto;
+	max-height: 400px;
+    color: #808080; /* Couleur du fond derrière les numéro de ligne */
+	white-space: pre;
+    /*word-wrap: break-word; si je met pre-wrap pour white-space mais je préfère garder le texte tel que fourni par l'utilisateur */
+	-moz-tab-size: 4;
+    -o-tab-size:   4;
+    tab-size:      4;
+}
+.code ol>li{
+	background-color: #fefcf5;
+    border-left: 1px solid #939393;
+    margin-left: 40px;
+    padding: 0 0 0 15px;
+}
+.code ol>li:first-child{
+	padding-top: 5px;
+}
+.code ol>li:last-child{
+	padding-bottom: 5px;
+}
+
+.code .imp{ font-weight: bold; color: red; }
+.code li, .code .li1{ font-weight: normal; vertical-align: top; }
+.code .ln{ width:1px; text-align:right; margin:0; padding:0 2px; vertical-align:top; }
+.code .li2{font-weight: bold; vertical-align:top;}
+
+/* Mots clés */
+.code .kw1{ color: #0000ff; font-weight: bold; }
+.code .kw2{ color: #0000ff; font-weight: bold; }
+.code .kw3{ color: #0000ff; font-weight: bold; }
+.code .kw4{ color: #0000ff; font-weight: bold; }
+
+/* Commentaires */
+.code .co1{ color: #008000; } /* Commentaire avec // */
+.code .co2{ color: #8000ff; } /* Expressions régulières */
+.code .co3{ color: #0000cc; font-style: italic; }
+.code .co4{ color: #009933; font-style: italic; }
+.code .coMULTI{color: #008000; } /* Commentaire comme ceux ci */
+
+.code .es0{ color: #000099; font-weight: bold; }
+.code .es1{ color: #000099; font-weight: bold;}
+.code .es2{ color: #660099; font-weight: bold; }
+.code .es3{ color: #660099; font-weight: bold; }
+.code .es4{ color: #006699; font-weight: bold; }
+.code .es5{ color: #006699; font-weight: bold; font-style: italic; }
+.code .es6{ color: #009933; font-weight: bold; }
+.code .es_h{ color: #000099; font-weight: bold; }
+
+/* parenthèse et accolade */
+.code .br0{ color: inherit; }
+
+/* Symboles de base ;++ */
+.code .sy0{ color: inherit; }
+.code .sy1{ color: #000000; font-weight: bold; }
+
+/* Chaine de caractères */
+.code .st0{ color: #808080; }
+.code .st_h{ color: #808080; }
+
+/* Nombres */
+.code .nu0{ color: #ff0000; }
+.code .nu8{ color: #208080; }
+.code .nu12{ color: #208080; }
+.code .nu19{ color:#800080; }
+
+/* Propriétés d'objet et de classe */
+.code .me1{ color: inherit; }
+.code .me2{ color: inherit; }
+
+.code .re0{ color: #000088; }
+.code .ln-xtra, .code li.ln-xtra, .code div.ln-xtra{ background-color: #ffc; }
+.code span.xtra{ display:block; }
+
+/* Javascript */
+.javascript ol>li{ background-color: #f2f4ff; } /* fond plus gris pour le javascript */
+.javascript .kw1, .javascript .kw2{ color: #000080; font-style: italic; } /* un bleu légèrement différent et italique */
+.javascript .kw3{ color: inherit; font-weight: normal; } /* Fonctions de base de l'objet window: couleur normale */
+.javascript .br0{ font-weight: bold; } /* (){} en gras */
+
+/* Php */
+.php .sy0, .php .br0{ color: #ac00fc; } /* les ;=(){} en violet */
+.php .nu0{ color: #ff8000; } /* Les nombres en orange */
+
+.css .kw1{ color: #8080c0; } /* propriété CSS (gris) */
+.css .re0{ color: #0080ff; } /* identifiant (bleu) */
+
+.css li, .css .li1 { color: blue; font-weight: normal; /* tagname */ }
+
+.css .nu0, .css .re3, .css .re0, .css .kw2{ color: #000000; font-weight: bold; }
+
+.css .br0, .css .sy0{
+	font-weight: bold;
+}
+
+.css .kw3{
+	color: red;	
+}
+

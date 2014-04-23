@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+	{meta}
+	<title>{site}<!-- IF title --> - {title}<!-- ENDIF --></title>
+	{css}
+	{head_js}
+</head>
+
+<body>
+
+{js}
+
+<div id="header" style="overflow:visible;height:auto;">
+	<div class="line" style="width:auto"><a href="../" class="button b rounded inner icon back">Retour au site</a></div>
+	<!-- BEGIN menu -->
+	<div class="expand line">
+		<input id="{menu.text}" type="checkbox" />
+		<label for="{menu.text}" class="button c rounded"><span class="inner">{menu.text}</span></label>
+		<div class="content">
+			<ul class="list hascount" style="margin:0">
+				<!-- BEGIN menu.list --><li class="button <!-- IF menu.list.class -->b<!-- ELSE -->c<!-- ENDIF -->">
+					<a class="inner" href="{menu.list.href}">{menu.list.text}</a>
+					<span class="count">{menu.list.count}</span>
+				</li><!-- END menu.list -->
+			</ul>
+		</div>
+	</div>
+	<!-- END menu -->
+	<div style="clear:both"></div>
+</div>
+
+<div id="page">
+	<div id="nav">
+		<ul>
+			<!-- BEGIN nav -->
+			<li><!-- IF nav.href --><a href="{nav.href}" class="button c rounded inner">{nav.text}</a><!-- ELSE --><h2>{nav.text}</h2><!-- ENDIF --></li>
+			<!-- END nav -->
+		</ul>
+	</div>
+	<!-- IF message --><p class="success">{message}</p><!-- ENDIF -->
+	<div style="padding:1%">

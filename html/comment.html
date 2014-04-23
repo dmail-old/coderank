@@ -1,0 +1,24 @@
+<!-- IF message -->
+<p class="{message.type}">{message.text}</p>
+<!-- ELSE -->
+<form class="form" action="{root}/comment.php" method="post">
+	<div class="title button b static"><h2 class="inner">{title}</h2></div>
+	<div class="content">
+		<div>
+			<textarea name="content" class="styled">{content}</textarea>
+			<!-- IF error.content --><p class="warning">{error.content}</p><!-- ENDIF -->
+		</div>
+		<div style="font-size:70%">{info}</div>
+	
+		<!-- IF moderate -->
+		<div style="text-align:center;margin-top:10px">
+			<input type="submit" name="accept" value="{lang.accept}" style="display:inline-block;width:40%;text-align:center" class="button inner b rounded" />
+			<input type="submit" name="refuse" value="{lang.refuse}" style="display:inline-block;width:40%;text-align:center" class="button inner c rounded" />
+		</div>
+		<!-- ELSE -->
+		<input type="submit" name="submit" value="{lang.send}" class="submit button inner b rounded" />
+		<!-- ENDIF -->
+	</div>
+	{hidden}
+</form>
+<!-- ENDIF -->

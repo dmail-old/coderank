@@ -1,0 +1,76 @@
+SetEnv PHP_VER 5_4
+
+<files *.json>
+order allow,deny
+deny from all
+</files>
+
+<files common.php>
+order allow,deny
+deny from all
+</files>
+
+# Erreur 404
+ErrorDocument 400 /coderank/error.php?status=400
+ErrorDocument 401 /coderank/error.php?status=401
+ErrorDocument 403 /coderank/error.php?status=403
+ErrorDocument 404 /coderank/error.php?status=404
+ErrorDocument 405 /coderank/error.php?status=405
+ErrorDocument 408 /coderank/error.php?status=408
+ErrorDocument 410 /coderank/error.php?status=410
+ErrorDocument 411 /coderank/error.php?status=411
+ErrorDocument 412 /coderank/error.php?status=412
+ErrorDocument 413 /coderank/error.php?status=413
+ErrorDocument 414 /coderank/error.php?status=414
+ErrorDocument 415 /coderank/error.php?status=415
+ErrorDocument 500 /coderank/error.php?status=500
+ErrorDocument 501 /coderank/error.php?status=501
+ErrorDocument 502 /coderank/error.php?status=502
+ErrorDocument 503 /coderank/error.php?status=503
+ErrorDocument 506 /coderank/error.php?status=506
+
+# options -indexes
+# ou mettre index.php dans les dossiers qui ne doivent pas être accessible
+
+#--------------------------------------------------
+# Répertoire : /
+#--------------------------------------------------
+
+# Activation du module de réécriture d'URL :
+RewriteEngine On
+
+# Le serveur doit suivre les liens symboliques :
+Options +FollowSymlinks
+
+#--------------------------------------------------
+# Ressources de rewriting : /
+#--------------------------------------------------
+
+# Variables get sans les afficher
+
+#RewriteCond %{QUERY_STRING} d=(.+)
+#And then you need to use a RewriteCond backreference in the form of %n:
+#RewriteRule subpages/view.php$ http://example.org/2010/view.php?d=%1
+
+#Autre façon de récup ce qui y'a après les slash
+#^nutrition/([^/]*)/([^/]*)/? index.php?p=12&food=$1&variety=$2
+
+#--------------------------------------------------
+# Règles de réécriture d'URL :
+#--------------------------------------------------
+
+# Gestion Langue et Page :
+
+# user/Angelblade -> user.php?name=Angelblade
+RewriteRule ^user/([^/]*)/([^/]*)/([^/]*)/?$ user.php?name=$1&part=$2&subpart=$3 [NC,QSA,L]
+RewriteRule ^user/([^/]*)/([^/]*)/?$ user.php?name=$1&part=$2 [NC,QSA,L]
+RewriteRule ^user/([^/]*)/?$ user.php?name=$1 [NC,QSA,L]
+RewriteRule ^user/?$ user.php [NC,QSA,L]
+
+# code/template.php -> code.php?name=template.php [NC,QSA,L]
+RewriteRule ^code/([^/]*)/?$ code.php?name=$1 [NC,QSA,L]
+RewriteRule ^code/?$ code.php [NC,QSA,L]
+
+# download/template.php -> download.php?name=template.php
+RewriteRule ^download/(.+)$ download.php?name=$1 [NC,QSA,L]
+RewriteRule ^download/?$ download.php [NC,QSA,L]

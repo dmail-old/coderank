@@ -1,0 +1,26 @@
+<div id="menu" class="grid two">	
+	<div class="block">
+		<h3>{lang.menu}</h3>
+		<ul class="list rounded">
+			<!-- BEGIN menu -->
+			<li class="button icon right <!-- IF menu.current -->static b check<!-- ELSE -->c arrow-r<!-- ENDIF -->">
+				<a class="inner" href="{menu.href}">{menu.text}</a>
+				<span class="count">{menu.count}</span>
+			</li>
+			<!-- END menu -->
+		</ul>
+	</div>	
+	
+	<!-- IF options -->
+	<div class="block">
+		<h3>{lang.options}</h3>
+		<ul class="list rounded">
+			<!-- BEGIN options -->
+			<li class="button icon right <!-- IF options.current -->static b check<!-- ELSE -->c arrow-r<!-- ENDIF -->">
+				<a class="inner" href="{options.href}">{options.text}</a>
+			</li>
+			<!-- END options -->
+		</ul>
+	</div>
+	<!-- ENDIF -->
+</div>

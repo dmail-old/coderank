@@ -1,0 +1,102 @@
+<div id="content" class="column">
+	<!-- IF !count -->
+	<p style="margin-top:0">{nomatch}</p>
+	<p>{proposal}</p>
+	<!-- IF suggest -->
+	<ul style="list-style:circle;padding-left:2em;"><!-- BEGIN suggest --><li>{suggest.text}</li><!-- END suggest --></ul>
+	<!-- ENDIF -->
+	<!-- ELSE -->
+	<ul class="list codelist rounded shadow">
+		<li class="button b static" role="heading">
+			<h3>{title}</h3>
+			<span class="count">{COUNT}</span>
+		</li>
+		<!-- INCLUDE part/codelist -->
+	</ul>
+	<!-- IF pagination -->
+	<ol class="pagination">
+		<!-- BEGIN pagination -->
+		<li>
+			<a href="{pagination.href}" class="button inner <!-- IF pagination.current -->b static<!-- ELSE -->c<!-- ENDIF -->">{pagination.text}</a>
+		</li>
+		<!-- END pagination -->
+	</ol>
+	<!-- ENDIF -->
+	<!-- ENDIF -->
+</div>
+
+<div id="menu">
+	<form id="advanced_search" style="padding:0" method="get" action="search.php">		
+		<fieldset>
+		<legend>{lang.advanced}</legend>
+		
+		<div id="submit">
+			<input type="text" name="search" value="{search}" />
+			<button class="button inner b" type="submit">{lang.search}</button>
+		</div>
+		
+		<div id="filter" class="list rounded">			
+			<!-- BEGIN filter -->
+			<label>
+				<select name="{filter.name}"><!-- INCLUDE part/option AS filter.option --></select>
+				<span class="button c inner icon right arrow-d"><span class="legend">{filter.text}</span></span>
+			</label>
+			<!-- END filter -->
+		</div>
+			
+		</fieldset>
+	</form>
+</div>
+
+<script>
+(function(){
+Array.implement('find', function(name){
+	var i = 0, j = this.length;
+	for(;i<j;i++){
+		if( this[i].name == name ) return this[i];
+	}
+	return null;
+});
+
+var selects = $('filter').getElements('select'), j = selects.length, i = j, select, span;
+
+function change(e){
+	var option = this.options[this.selectedIndex];
+	
+	// lorsque une autre option que la première est selected et que le filtre est actif on le met en bleu
+	if( this.selectedIndex && option.getAttribute('selected') ) this.getNext('span').removeClass('c').addClass('b');
+	else this.getNext('span').removeClass('b').addClass('c');
+	
+	this.retrieve('span').set('text', option.get('text'));
+}
+
+// lorsque je change de language on cache les optgroup en conséquence puisqu'ils deviennent inutiles
+selects[0].addEvent('change', function(){
+	var i = j;
+	while(i-- > 0){
+		showGroup(selects[i], this.options[this.selectedIndex].value);
+	}
+});
+
+// lorsque je définit une librairie on montre le groupe correspondant
+selects.find('library').addEvent('change', function(){
+	var version = selects.find('version'),
+	// aucune libraries montre les versions par language, sinon la libraries choisies
+	select = this.selectedIndex < 2 ? selects.find('language') : this;
+	showGroup(version, select.options[select.selectedIndex].value);
+})
+
+while(i--){
+	select = selects[i];
+	span = new Element('span');
+	
+	select.addClass('styled');
+	select.store('span', span);
+	select.getNext().appendChild(span);
+	select.addEvents({change: change, keydown: change, keyup:change});
+	select.fireEvent('change');
+}
+
+})();
+
+</script>

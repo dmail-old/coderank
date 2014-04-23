@@ -1,0 +1,118 @@
+<!-- IF message -->
+<p class="{message.type}">{message.text}</p>
+<!-- ELSE -->
+<form class="form" action="{root}/add.php" method="post">
+	<div class="title button b static"><h2 class="inner">{title}</h2></div>
+	<div class="content">
+		<div class="field">
+			<label for="name">{lang.name}</label>
+			<input id="name" type="text" value="{name}" name="name" title="{lang.name_title}" required />
+			<!-- IF error.name --><p class="warning">{error.name}</p><!-- ENDIF -->
+		</div>
+		<div class="field">
+			<label for="description">{lang.description}</label>
+			<input type="text" name="description" value="{description}" maxlength="100" id="description" required />
+			<!-- IF error.description --><p class="warning">{error.description}</p><!-- ENDIF -->
+		</div>
+		<div class="field">
+			<label for="source">{lang.source}</label>
+			<textarea type="text" name="source" id="source" required>{source}</textarea>
+			<!-- IF error.source --><p class="warning">{error.source}</p><!-- ENDIF -->
+		</div>
+		<div class="field">
+			<label for="demo">{lang.demo}<span class="detail">{lang.demo_detail}</span></label>
+			<textarea id="demo" type="text" name="demo" required>{demo}</textarea>
+			<!-- IF error.demo --><p class="warning">{error.demo}</p><!-- ENDIF -->
+		</div>
+		<div class="field">
+			<label for="language">{lang.language}</label>
+			<div id="radio_language">
+				<!-- BEGIN language -->
+				<label><input type="radio" name="language" value="{language.name}" required <!-- IF language.checked --> checked id="language"<!-- ENDIF -->/>{language.name}</label>
+				<!-- END language -->
+			</div>
+			<!-- IF error.language --><p class="warning">{error.language}</p><!-- ENDIF -->
+		</div>
+		<div class="field">
+			<label for="category">{lang.category}<span class="detail">{lang.category_detail}</span></label>
+			<select id="category" name="category[]" size="5" multiple><!-- INCLUDE part/option AS category --></select>
+			<!-- IF error.category --><p class="warning">{error.category}</p><!-- ENDIF -->
+		</div>
+		<div class="field">
+			<label for="library">{lang.library}</label>
+			<select id="library" name="library"><!-- INCLUDE part/option AS library --></select>
+			<!-- IF error.library --><p class="warning">{error.library}</p><!-- ENDIF -->
+		</div>
+		<div class="field">
+			<label for="version">{lang.version}</label>
+			<div>
+				<label><input style="margin-left:0" type="checkbox" name="version" id="version" <!-- IF version -->checked<!-- ENDIF --> />{lang.version_need}</label>
+				<div style="white-space:nowrap;display:inline">
+					<span id="version_language">javascript</span>
+					<input type="number" name="major" value="{major}" min="0" max="99" class="number" />.<input type="number" name="minor" value="{minor}" min="0" max="99" class="number" />
+					{lang.version_above}
+				</div>
+			</div>
+			<!-- IF error.version --><p class="warning">{error.version}</p><!-- ENDIF -->
+		</div>
+		
+		<!-- IF moderate -->
+		<div style="position:relative;" class="expand">
+			<input id="motif" type="checkbox" />
+			<label class="button c rounded" for="motif"><span class="inner">{lang.motif}</span></label>
+			<div class="content">
+				<label class="field"><input type="radio" name="motif" value="3" />{lang.motif_code}</label>
+				<label class="field"><input type="radio" name="motif" value="4" />{lang.motif_demo}</label>
+				<div class="field"><label><input type="radio" name="motif" value="5" />{lang.motif_other}</label><input type="text" name="motif_other" value="" /></div>
+			</div>
+		</div>
+		<div style="text-align:center;margin-top:10px">
+			<input type="submit" name="accept" value="{lang.accept}" style="display:inline-block;width:40%;text-align:center" class="button inner b rounded" />
+			<input type="submit" name="refuse" value="{lang.refuse}" style="display:inline-block;width:40%;text-align:center" class="button inner c rounded" />
+		</div>
+		<!-- ELSE -->
+		<input type="submit" name="submit" value="{lang.add}" class="submit button inner b rounded" />
+		<!-- ENDIF -->
+	</div>
+	{hidden}
+</form>
+<!-- ENDIF -->
+
+<script>
+(function(){
+
+var radioContainer = $('radio_language');
+if( !radioContainer ) return;
+var radios = radioContainer.getElements('input');
+var library = $('library');
+
+function changeVersionTarget(){
+	var target = '';
+	if( library.selectedIndex ) target = library.options[library.selectedIndex].value;
+	else{
+		var i = radios.length;
+		while(i--){
+			if( radios[i].checked ){
+				target = radios[i].value; break;
+			}
+		}
+	}
+	$('version_language').set('text', target);
+}
+
+radios.each(function(radio){
+	radio.addEvent('change', function(){
+		if( this.checked ){
+			changeVersionTarget();
+			showGroup($('library'), this.value);
+			showGroup($('category'), this.value);
+		}
+	});
+	radio.fireEvent('change');
+});
+
+library.addEvent('change', changeVersionTarget);
+
+})();
+
+</script>

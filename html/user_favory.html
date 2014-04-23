@@ -1,0 +1,17 @@
+<div id="content" class="column">
+
+<!-- IF favory.count -->
+<ul class="list codelist rounded shadow" style="margin-top:0">
+	<li class="button b static" role="heading">
+		<h3>{favory.title}</h3>
+		<span class="count">{favory.count}</span>
+	</li>
+	<!-- INCLUDE part/codelist AS favory.list -->
+</ul>
+<!-- ELSE -->
+{empty}
+<!-- ENDIF -->
+
+</div>
+
+<!-- INCLUDE user_menu -->

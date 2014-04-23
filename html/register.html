@@ -1,0 +1,27 @@
+<!-- IF message --><div class="{message.type}">{message.text}</div><!-- ENDIF -->
+
+<form class="form" action="{S_ACTION}" method="post" name="register">
+	<div class="title button b static"><h2 class="inner">{L_REGISTER}</h2></div>
+	<div class="content">
+		<div class="field">
+			<label for="user_name">{L_USER_NAME}</label>
+			<input type="text" name="user_name" id="user_name" value="{USER_NAME}" maxlength="32" />
+		</div>			
+		<div class="field">
+			<label for="password">{L_PASSWORD}</label>
+			<input type="password" name="password" id="password" value="" required />
+		</div>
+		<div class="field">
+			<label for="email">{L_EMAIL}</label>
+			<input type="email" name="email" id="email" value="{EMAIL}" required />
+		</div>
+		<div class="field">
+			<label style="width:100%" for="terms">
+				<input type="checkbox" name="terms" id="terms" value="{TIMEID_ENCODED}" {TERMS_CHECKED} required />
+				{l_agree}
+			</label>
+		</div>
+		<input type="submit" class="submit button inner b rounded" name="submit" value="{L_REGISTER}" />
+	</div>
+	{S_HIDDEN_FIELDS}
+</form>

@@ -1,0 +1,31 @@
+<div id="content" class="column">
+
+<!-- IF message -->
+<p class="{message.type}">{message.text}</p>
+<!-- ELSE -->
+<!-- IF info --><p class="info">{info}</p><!-- ENDIF -->
+<form class="form" action="" method="post">
+	<div class="title button b static"><h2 class="inner">{title}</h2></div>
+	<div class="content">
+		<!-- IF field -->
+		<div class="field">
+			<label for="field">{field.name}</label>
+			<input type="text" name="field" id="field" value="{field.value}" />
+			<!-- IF error.field --><p class="warning">{error.field}</p><!-- ENDIF -->
+		</div>
+		<!-- ENDIF -->
+		<div class="field">
+			<label for="password">{password}</label>
+			<input type="password" name="password" id="password" />
+			<!-- IF error.password --><p class="warning">{error.password}</p><!-- ENDIF -->
+		</div>
+		
+		<!-- IF success --><p class="success">{success}</p><!-- ENDIF -->
+		<input type="submit" name="submit" value="{title}" class="submit button inner b rounded" />
+	</div>
+</form>
+<!-- ENDIF -->
+
+</div>
+
+<!-- INCLUDE user_menu -->

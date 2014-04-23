@@ -1,0 +1,31 @@
+<!-- BEGIN codelist -->
+<li class="button a static<!-- IF codelist.mine --> mine<!-- ENDIF --><!-- IF codelist.control --> control<!-- ENDIF -->">
+	<div class="inner">
+		<h4 class="name">
+			<!-- IF codelist.visible == 1 -->
+			<a title="{codelist.title}" href="{codelist.href}">{codelist.name}.{codelist.extension}</a>
+			<!-- ELSE -->
+			{codelist.name}.{codelist.extension}
+			<!-- ENDIF -->
+		</h4>
+		<p class="desc">{codelist.description}</p>
+		<p class="infos">
+			<!--<img style="position:absolute;bottom:2px;" src="http://static.jquery.com/favicon.ico" />-->
+			<!-- IF codelist.author -->
+			<a class="author" tabindex="-1" href="{codelist.author.href}">{codelist.author.text}</a>
+			<span class="sep">|</span>
+			<!-- ENDIF -->
+			<span>{codelist.ctime}</span>
+			<span class="sep">|</span>
+			<a class="language" tabindex="-1" href="{codelist.language.href}">{codelist.language.text}</a>
+			<span class="sep">|</span>
+			<span class="view">{codelist.view} vues</span>
+		</p>
+		<!-- INCLUDE part/rank AS codelist.rank -->
+		
+		<!-- BEGIN codelist.control -->
+		<a href="{codelist.control.href}" class="{codelist.control.name}" title="{codelist.control.text}" tabindex="-1">{codelist.control.text}</a>
+		<!-- END codelist.control -->
+	</div>
+</li>
+<!-- END codelist -->

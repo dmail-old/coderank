@@ -1,0 +1,86 @@
+<files *.json>
+order allow,deny
+deny from all
+</files>
+
+<files common.php>
+order allow,deny
+deny from all
+</files>
+
+# Erreur 404
+ErrorDocument 400 /ovalia/error.php?status=400
+ErrorDocument 401 /ovalia/error.php?status=401
+ErrorDocument 403 /ovalia/error.php?status=403
+ErrorDocument 404 /ovalia/error.php?status=404
+ErrorDocument 405 /ovalia/error.php?status=405
+ErrorDocument 408 /ovalia/error.php?status=408
+ErrorDocument 410 /ovalia/error.php?status=410
+ErrorDocument 411 /ovalia/error.php?status=411
+ErrorDocument 412 /ovalia/error.php?status=412
+ErrorDocument 413 /ovalia/error.php?status=413
+ErrorDocument 414 /ovalia/error.php?status=414
+ErrorDocument 415 /ovalia/error.php?status=415
+ErrorDocument 500 /ovalia/error.php?status=500
+ErrorDocument 501 /ovalia/error.php?status=501
+ErrorDocument 502 /ovalia/error.php?status=502
+ErrorDocument 503 /ovalia/error.php?status=503
+ErrorDocument 506 /ovalia/error.php?status=506
+
+<files *.js.gz>
+  AddType "text/javascript" .gz
+  AddEncoding gzip .gz
+</files>
+<files *.css.gz>
+  AddType "text/css" .gz
+  AddEncoding gzip .gz
+</files>
+<files *.html.gz>
+  AddType "text/html" .gz
+  AddEncoding gzip .gz
+</files>
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	#Vérifie si le browser accepte le contenu gzip safari envoit pas ce header mais le peut pourtant
+	ReWriteCond %{HTTP:accept-encoding} gzip
+	#Navigateurs non compatible avec la décompression à la volée de .gz
+	RewriteCond %{HTTP_USER_AGENT} !^.*MSIE\ 6.0
+	#Semble fonctionner maintenant sous chrome
+	#RewriteCond %{HTTP_USER_AGENT} !^.*Chrome.*
+	RewriteCond %{HTTP_USER_AGENT} !^.*Mozilla/4\.0[678].*
+	#Depuis safari aussi fonctionne
+	#RewriteCond %{HTTP_USER_AGENT} !Safari
+	#make sure theres no trailing .gz on the url
+	ReWriteCond %{REQUEST_FILENAME} !^.+\.gz$
+	#check to see if a .gz version of the file exists.
+	RewriteCond %{REQUEST_FILENAME}.gz -f
+	#All conditions met so add .gz to URL filename (invisibly)
+	RewriteRule ^(.+) $1.gz [QSA,L]
+</IfModule>
+
+# options -indexes
+
+# ou mettre index.php dans les dossiers qui ne doivent pas être accessible
+
+#--------------------------------------------------
+# Répertoire : /
+#--------------------------------------------------
+
+# Le serveur doit suivre les liens symboliques :
+#Options +FollowSymlinks
+
+# Activation du module de réécriture d'URL :
+RewriteEngine On
+
+#--------------------------------------------------
+# Règles de réécriture d'URL :
+#--------------------------------------------------
+
+# Gestion Langue et Page :
+
+# Permet que ovalia/user/Angelblade mène à mon profil
+RewriteRule ^users/(.+)$ users.php?name=$1
+RewriteRule ^users/?$ users.php
+# Permet que ovalia/option/name mène au changement de son nom
+RewriteRule ^options/(.+)$ options.php?option=$1
+RewriteRule ^options/?$ options.php

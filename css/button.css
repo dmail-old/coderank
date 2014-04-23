@@ -1,0 +1,646 @@
+/* Boutons */
+
+.button{
+	display: block;
+	position: relative;   
+	margin: 0.5em 5px;
+    text-align: left;
+	background-clip: padding-box;
+	border: 1px solid #CCCCCC;
+    color: #444444;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #F6F6F6;
+	line-height: normal;
+	font-family: inherit; /* pour les input par ex qui ont un autre font-family */
+}
+
+.button.rounded, .rounded.inner, .rounded>.inner{
+	border-radius: 1em;
+}
+
+.button>.inner>a{
+	text-decoration: none;
+	color: inherit;
+}
+
+.button, .button.static:hover, .button.static:active, .expand .button{
+	background: #FFFFFF;
+	border-color: #CCCCCC;
+}
+
+.button.shadow{
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.button.on{
+	cursor: default;
+}
+
+.button .inner{
+	border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.button .inner, .button.inner{
+	display: block;
+	overflow: hidden;
+	padding: 0.6em 15px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	color: inherit;
+}
+
+li.button{
+	margin: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.button:hover, select.styled:hover+.button{
+	text-decoration: none;
+	color: #222222;
+	border-color: #AAAAAA;
+	background: #EEEEEE;
+	background-image: -webkit-linear-gradient(#FDFDFD, #EEEEEE);
+	background-image:    -moz-linear-gradient(#FDFDFD, #EEEEEE);
+	background-image:     -ms-linear-gradient(#FDFDFD, #EEEEEE);
+	background-image:      -o-linear-gradient(#FDFDFD, #EEEEEE);
+	background-image:         linear-gradient(#FDFDFD, #EEEEEE);
+}
+
+.button:hover, .inner:hover{
+	text-decoration: none;
+}
+
+.button:active, .group input:checked+.button, select.styled:active+.button{
+	background: #FFFFFF;
+	background-image: -webkit-linear-gradient(#EEEEEE, #FFFFFF);
+	background-image:    -moz-linear-gradient(#EEEEEE, #FFFFFF);
+	background-image:     -ms-linear-gradient(#EEEEEE, #FFFFFF);
+	background-image:      -o-linear-gradient(#EEEEEE, #FFFFFF);
+	background-image:         linear-gradient(#EEEEEE, #FFFFFF);
+}
+
+.button:hover:active, .button.active{
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset;
+}
+
+.button.static:hover:active{
+	box-shadow: none;
+}
+
+/* Bouton B (bleu) */
+
+.button.b, .button.b.static:hover, .button.b.static:active, .expand .button.b, .group input:checked+.button{
+	position: relative;
+	color: #FFFFFF;
+	text-shadow: 0 -1px 1px #014D68;
+	border-color: #3079ED;
+	background: #4B88B6;
+	background-image: -webkit-linear-gradient(#72B0D4, #4B88B6);
+	background-image:    -moz-linear-gradient(#72B0D4, #4B88B6);
+	background-image:     -ms-linear-gradient(#72B0D4, #4B88B6);
+	background-image:      -o-linear-gradient(#72B0D4, #4B88B6);
+	background-image:         linear-gradient(#72B0D4, #4B88B6);   
+}
+
+.button.b:hover, select.styled:hover+.button.b{	
+	color: #FFFFFF;
+	border-color: #3079ED;
+	background: #357AE8;	
+	background-image: -webkit-linear-gradient(#85bae4, #5393c5);
+	background-image:    -moz-linear-gradient(#85bae4, #5393c5);
+	background-image:     -ms-linear-gradient(#85bae4, #5393c5);
+	background-image:      -o-linear-gradient(#85bae4, #5393c5);
+	background-image:         linear-gradient(#85bae4, #5393c5);
+}
+
+.button.b:active{
+	background: #357AE8;	
+}
+
+/* Bouton C (gris) */
+
+.button.c, .button.c.static:hover, .button.c.static:active, .expand .button.c/*, .button.mine, .comment>.mine>.text*/{
+	color: #444444;
+	border-color: #CCCCCC;
+	background: #EEEEEE;
+	background-image: -webkit-linear-gradient(#FDFDFD, #EEEEEE);
+	background-image:    -moz-linear-gradient(#FDFDFD, #EEEEEE);
+	background-image:     -ms-linear-gradient(#FDFDFD, #EEEEEE);
+	background-image:      -o-linear-gradient(#FDFDFD, #EEEEEE);
+	background-image:         linear-gradient(#FDFDFD, #EEEEEE);
+}
+
+.button.c:hover, select.styled:hover+.button.c{
+	color: #101010;
+	border-color: #BBBBBB;
+	background: #DADADA;
+	background-image: -webkit-linear-gradient(#EDEDED, #DADADA);
+	background-image:    -moz-linear-gradient(#EDEDED, #DADADA);
+	background-image:     -ms-linear-gradient(#EDEDED, #DADADA);
+	background-image:      -o-linear-gradient(#EDEDED, #DADADA);
+	background-image:         linear-gradient(#EDEDED, #DADADA);	
+}
+
+/* Bouton D (noir) */
+
+.button.d, .button.d.static:hover, .button.d.static:active, .expand .button.d{
+    color: #FFFFFF;
+    text-shadow: 0 -1px 1px #000000;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+	border-color: #222222;
+	background: #333333;
+	background-image: -webkit-linear-gradient(#555555, #333333);
+	background-image:    -moz-linear-gradient(#555555, #333333);
+	background-image:     -ms-linear-gradient(#555555, #333333);
+	background-image:      -o-linear-gradient(#555555, #333333);
+	background-image:         linear-gradient(#555555, #333333);
+}
+
+.button.d:hover{
+	color: #FFFFFF;
+	border-color: #000000;
+	background: #444444;
+	background-image: -webkit-linear-gradient(#666666, #444444);
+	background-image:    -moz-linear-gradient(#666666, #444444);
+	background-image:     -ms-linear-gradient(#666666, #444444);
+	background-image:      -o-linear-gradient(#666666, #444444);
+	background-image:         linear-gradient(#666666, #444444);
+}
+
+.button.d:active{
+	color: #FFFFFF;
+	background: #3D3D3D;
+	background-image: -webkit-linear-gradient(#333333, #5A5A5A);
+	background-image:    -moz-linear-gradient(#333333, #5A5A5A);
+	background-image:     -ms-linear-gradient(#333333, #5A5A5A);
+	background-image:      -o-linear-gradient(#333333, #5A5A5A);
+	background-image:         linear-gradient(#333333, #5A5A5A);
+}
+
+.button.d.light{
+	color: #DDDDDD;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
+}
+
+.button.d.light:hover{
+	color: #FFFFFF;
+}
+
+.button.d.icon.light:after{
+	opacity: 0.5;
+}
+
+.button.d.icon.light:hover:after{
+	opacity: 1.0;
+}
+
+/* Bouton R (rouge) */
+
+.button.r, .button.r.static:hover, .button.r.static:active, .expand .button.r{
+	color: #FFFFFF;
+	text-shadow: 0 -1px 1px #711414;
+	border-color: #711414;
+	background: #ab2525;
+	background-image: -webkit-linear-gradient(#c44f4f, #ab2525);
+	background-image:    -moz-linear-gradient(#c44f4f, #ab2525);
+	background-image:     -ms-linear-gradient(#c44f4f, #ab2525);
+	background-image:      -o-linear-gradient(#c44f4f, #ab2525);
+	background-image:         linear-gradient(#c44f4f, #ab2525);
+}
+
+.button.r:hover{
+	text-shadow: 0 -1px 1px #690101;
+	border-color: #6e0000;
+	background: #b54a4a;
+	background-image: -webkit-linear-gradient(#d47272, #b54a4a);
+	background-image:    -moz-linear-gradient(#d47272, #b54a4a);
+	background-image:     -ms-linear-gradient(#d47272, #b54a4a);
+	background-image:      -o-linear-gradient(#d47272, #b54a4a);
+	background-image:         linear-gradient(#d47272, #b54a4a);
+}
+
+.button.r:active{
+	text-shadow: 0 -1px 1px #782323;
+	border: 1px solid #782323;
+	background: #c44f4f;
+	background-image: -webkit-linear-gradient(#9e3939, #c44f4f);
+	background-image:    -moz-linear-gradient(#9e3939, #c44f4f);
+	background-image:     -ms-linear-gradient(#9e3939, #c44f4f);
+	background-image:      -o-linear-gradient(#9e3939, #c44f4f);
+	background-image:         linear-gradient(#9e3939, #c44f4f);
+}
+
+.button.icon.inner, .button.icon .inner, .expand label .inner{
+	padding-left: 33px;
+}
+
+.button.icon.inner.right, .button.icon.right .inner{
+	padding-left: 25px;
+	padding-right: 33px;
+}
+
+/* Bouton Y (jaune), utilisé pour le focus */
+
+.button.y, .button.y.static:hover, .button.y.static:active, .expand .button.y,
+.button.focus, .button:focus, select.styled:focus+.button, select.styled:focus:hover+.button, .expand>input:focus+.button{
+	outline: none;
+	color: #333333 !important;
+    text-shadow: none !important;
+	border-color: #F7C942;
+	background: #FADB4E !important;
+	background-image: -webkit-linear-gradient(#FCEDA7, #FADB4E) !important;
+	background-image:    -moz-linear-gradient(#FCEDA7, #FADB4E) !important;
+	background-image:     -ms-linear-gradient(#FCEDA7, #FADB4E) !important;
+	background-image:      -o-linear-gradient(#FCEDA7, #FADB4E) !important;
+	background-image:         linear-gradient(#FCEDA7, #FADB4E) !important;
+}
+
+.button.focus a:focus{
+	outline: none;
+}
+
+/* Liste de boutons */
+
+.list{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	overflow: hidden;
+}
+
+.list>.button, .list>*>.button{
+	border-radius: 0;
+	margin: 0;
+	display: block;
+	text-align: left;
+	border-bottom-width: 0;
+	text-align: left;
+}
+
+.list li h1, .list li h2, .list li h3, .list li h4, .list li h5, .list li h6{
+	margin: 0.6em 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.list>.button:last-child, .list>*:last-child>.button{
+	border-bottom-width: 1px;
+}
+
+/* Listes avec ombre */
+.list.shadow{
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+	background-clip: padding-box;
+}
+
+/* Listes arrondies */
+.list.rounded{
+	border-radius: 0.2em;
+}
+
+.list.rounded>.button:first-child, .list.rounded label:first-child .button{
+	border-top-left-radius: 0.2em;
+	border-top-right-radius: 0.2em;
+}
+.list.rounded>.button:last-child, .list.rounded label:last-child .button{
+	border-bottom-left-radius: 0.2em;
+	border-bottom-right-radius: 0.2em;
+}
+
+/* Groupes de boutons (en ligne) */
+.group{
+	margin: 0.5em 5px;
+	margin-bottom: -1px;
+	display: inline-block;
+	white-space: nowrap;
+}
+
+.group + .group{
+	margin-left: 15px;
+}
+
+.group>*{
+	display: inline-block;
+	vertical-align: middle;
+	line-height: normal;
+}
+
+.group .button{
+	margin: 0;
+	margin-right: -1px;
+	box-shadow: none;
+	border-radius: 0;
+	position: relative;
+	z-index: 2;
+}
+
+.group.hascount .inner, .list.hascount .inner{
+	padding-right: 60px;
+}
+
+.group .inner{
+	padding-top: 0.4em;
+	padding-bottom: 0.5em;
+	padding-right: 8px;
+}
+
+.group input{
+	height: 10px;
+    left: 20px;
+    margin: -5px 0 0;
+    outline: 0 none !important;
+    position: absolute;
+    top: 50%;
+    width: 10px;
+    z-index: 1;
+}
+
+.group label{
+	text-align: left;
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.group .inner{
+	border-radius: 0;
+}
+
+.group.rounded>.button:first-child, .group.rounded>*:first-child .inner{
+	border-top-left-radius: 0.6em;
+	border-bottom-left-radius: 0.6em;
+}
+
+.group.rounded>.button:last-child, .group.rounded>*:last-child .inner{
+	margin-right: 0;
+	border-top-right-radius: 0.6em;
+	border-bottom-right-radius: 0.6em;
+}
+
+/* Boutons ouvrant du contenu */
+.expand{
+	margin: 0.5em 0;
+}
+
+.expand>input:first-child{
+	position: absolute;
+	top: 0;
+	left: -9000px;
+}
+
+.expand label.button{
+	margin: 0;
+}
+
+.expand .content{
+	display: none;	
+    color: #333333;
+	padding: 10px 16px;
+    text-shadow: 0 1px 0 #FFFFFF;
+	border: 1px solid #B3B3B3;
+	border-top: none;
+	background: #F0F0F0;
+	overflow: hidden;
+}
+
+.expand.visibility .content{
+	display: block;
+	visibility: hidden;
+}
+
+.expand label.button.r + .content, .expand label.button.b + .content{
+	background: #FFFFF;
+}
+
+.expand>.button.rounded+.content{
+	border-radius: 0 0 0.6em 0.6em;
+}
+
+.expand>input:checked+.button.rounded{
+	border-radius: 0.6em 0.6em 0 0;
+}
+
+.expand>input:checked+label+.content, .expand>.content.show{
+	display: block;
+	visibility: visible;
+}
+
+.expand .content .group .button{
+	border-top: none;
+}
+
+.expand .content .group label:first-child>.button{
+	border-left: none;
+	border-radius: 0;
+}
+
+.expand .content .group label:last-child>.button{
+	border-right: none;
+	border-radius: 0;
+}
+
+li[role="heading"]{
+	font-size: 90%;
+	cursor: default;
+	/*ceci est incompatible avec border-radius sous webkit*/
+	/* border-left-color: none !important; border-right: none !important;*/
+	border-bottom-width: 1px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 15px;
+	padding-right: 15px;
+	
+	-webkit-background-clip: padding-box;
+	background-attachment: scroll;
+	background-clip: padding-box;
+}
+
+li[role="heading"]:hover:active{
+	box-shadow: none;
+}
+
+li[role="heading"] h1, li[role="heading"] h2, li[role="heading"] h3{
+	margin: 0; padding: 0;
+	color: inherit;
+	font-size: 100%; /* ce qui fait les 14px de .list li[role="heading"]*/
+}
+
+.button .count{
+	font-size: 75%;
+    font-weight: bold;
+	margin-top: -0.9em;
+    padding: 0.2em 0.5em;
+	border-radius: 1em;
+	background: #FFFFFF;
+	border: 1px solid #CCCCCC;
+    color: #444444;
+	text-shadow: 0 1px 1px #F6F6F6;
+	z-index: 1;
+	position: absolute;
+    right: 10px;
+    top: 50%;
+}
+
+.inner>.count{
+	position: static; left: auto; top: auto;
+	margin-left: 10px;
+}
+
+.button.r .count{
+	background: rgba(0,0,0,0.3);
+	border-color: #711414;
+	text-shadow: none;
+	color: white;
+	
+	border: none;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);	
+}
+
+.button.b .count, .button.d .count{
+	background: rgba(0,0,0,0.3);
+	border-color: #3079ED;
+	text-shadow: none;
+	color: lightGrey;
+	border: none;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.count.inline{
+	position: static;
+	margin: 0;
+	margin-right: 0.5em;
+	padding: 0.2em 0.5em;
+}
+
+span.legend{
+	text-align: right;
+	font-weight: bold;
+	position: absolute;
+	top: 50%;
+	margin-top: -0.6em;
+	left: 7%;
+	width: 35%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: normal;
+}
+
+span.legend+*{
+	text-shadow: none;
+	padding-left: 0;
+	margin-left: 45%;
+	font-weight: normal;
+}
+
+span.legend+a{
+	padding-left: 45% !important;
+	position: relative; z-index: 2; /* le lien passé devant la légende pour le clic */
+	margin-left: 0;
+}
+
+.button.icon.right .count{
+	right: 30px;
+}
+
+.button.icon:after, .expand>label.button:after{
+	background-image: url(../img/icons.png);
+	/*background-color: rgba(0, 0, 0, 0.4);*/
+	opacity: 0.4;
+	border-radius: 9px;
+	content: "";
+	display: block;
+	left: 10px;
+    margin-top: -9px;
+    position: absolute;
+    top: 50%;
+    height: 18px;
+    width: 18px;
+}
+
+.button.icon.right:after{
+	left: auto;
+	right: 10px;
+}
+
+.button.d.icon:after/*, .button.r.icon:after*/{
+	background-image: url(../img/icons_white.png);
+	opacity: 1.0;
+}
+
+.button.icon.plus:after{
+	background-position: -0 50%;
+}
+.button.icon.minus:after, .expand>input:checked+.button:after, .expand>.checked+.button:after{
+	background-position: -36px 50%;
+}
+.button.icon.delete:after{
+	background-position: -72px 50%;
+}
+.button.icon.arrow-r:after{
+	background-position: -108px 50%;
+}
+.button.icon.arrow-l:after{
+	background-position: -144px 50%;
+}
+.button.icon.arrow-u:after{
+	background-position: -180px 50%;
+}
+.button.icon.arrow-d:after{
+	background-position: -216px 50%;
+}
+.button.icon.check:after{
+	background-position: -252px 50%;
+}
+.button.icon.gear:after{
+	background-position: -288px 50%;
+}
+.button.icon.refresh:after{
+	background-position: -324px 50%;
+}
+.button.icon.forward:after{
+	background-position: -360px 50%;
+}
+.button.icon.back:after{
+	background-position: -396px 50%;
+}
+.button.icon.grid:after{
+	background-position: -432px 50%;
+}
+.button.icon.star:after{
+	background-position: -468px 50%;
+}
+.button.icon.alert:after{
+	background-position: -504px 50%;
+}
+.button.icon.info:after{
+	background-position: -540px 50%;
+}
+.button.icon.home:after{
+	background-position: -576px 50%;
+}
+.button.icon.search:after{
+	background-position: -612px 50%;
+}
+
+.list li .desc{
+	font-size: 12px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #2F3E46;
+	font-weight: normal;
+	margin: -0.5em 0 0.5em;
+}
+
+.list li .aside{
+	width: 45%;
+    float: right;
+    margin: 0.3em 0;
+    text-align: right;
+	display: block;
+    font-size: 12px;
+    font-weight: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

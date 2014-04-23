@@ -1,0 +1,19 @@
+<div id="content" class="column">
+
+<!-- IF comment -->
+<ul class="list rounded shadow" style="margin-top:0">
+	<!-- BEGIN comment -->
+	<li class="button {comment.class} static" role="heading">
+		<h3>{comment.title}</h3>
+		<span class="count">{comment.count}</span>
+	</li>
+	<!-- IF comment.list --><li style="padding:10px"><ul class="comment"><!-- INCLUDE part/commentlist AS comment.list --></ul></li><!-- ENDIF -->
+	<!-- END comment -->
+</ul>
+<!-- ELSE -->
+{empty}
+<!-- ENDIF -->
+
+</div>
+
+<!-- INCLUDE user_menu -->

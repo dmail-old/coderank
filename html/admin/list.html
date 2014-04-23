@@ -1,0 +1,40 @@
+<form action="index.php" method="get">
+<table>
+	<caption>{title} ({count})</caption>
+	<tr><!-- BEGIN column --><th>{column.text}</th><!-- END column --></tr>
+	<!-- IF item -->
+	<!-- BEGIN item -->
+	<tr>
+		<!-- BEGIN item.field -->
+		<!-- IF item.field.href -->
+		<td align="center"><a class="{item.field.name}" href="{item.field.href}"></a></td>
+		<!-- ELSE -->
+		<td>{item.field.value}</td>
+		<!-- ENDIF -->
+		<!-- END item.field -->
+	</tr>
+	<!-- END item -->
+	<!-- ELSE -->
+	<tr><td style="text-align:center" colspan="{column_count}">{no_row}</td></tr>
+	<!-- ENDIF -->
+</table>
+
+<div class="actions" style="font-size:90%;overflow:hidden">
+	<span style="float:left;margin-top:10px;margin-right:10px;display:inline-block">{count} {title}</span>
+	
+	<!-- IF pagination -->
+	<ol class="pagination" style="float:left">
+		<!-- BEGIN pagination -->
+		<li>
+			<a href="{pagination.href}" class="button inner <!-- IF pagination.current -->b static<!-- ELSE -->c<!-- ENDIF -->">{pagination.text}</a>
+		</li>
+		<!-- END pagination -->
+	</ol>
+	<!-- ENDIF -->
+	
+	<input type="submit" name="add" value="Ajouter" class="button c inner" style="float:right;font-size:80%;" />
+</div>
+
+
+
+</form>

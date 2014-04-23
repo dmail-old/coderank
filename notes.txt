@@ -1,0 +1,11 @@
+Coderank
+
+Reprendre un affichage de type bloc pour les codes?
+Créer une tables syntax, qui liste les syntaxes supporté, un id et un nom.
+Ensuite je peux définir une syntaxe à chaque langague et chaque librairie
+Pouvoir me contacter
+Une rubrique voir aussi quand on regare un code
+FIX: Lorsque je change le langage, la coloration syntaxique doit être refaite
+
+BUG: les backslash disparaissent dans le code source
+BUG: désinscription
